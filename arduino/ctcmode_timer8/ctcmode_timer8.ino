@@ -5,7 +5,7 @@
 
 void setup() 
 {
-  DDRB |= (1 << LED_PIN);
+  DDRD |= (1 << LED_PIN);
   TCCR1A = 0;
   TCCR1B = 0;
   TCCR1B |= (1 << WGM12);   // Set CTC mode
