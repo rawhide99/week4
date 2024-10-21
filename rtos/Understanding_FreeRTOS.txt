@@ -1,0 +1,62 @@
+#My FreeRTOS Understanding
+
+#FreeRTOS uses Hungarian Notation.
+
+#Variable prefixes added:
+	c -> char
+	s -> short (int16_t)
+	l -> long (int32_t)
+
+#Different types of return type in functions:
+	v -> void
+	x -> BaseType_t
+	pv -> pointer to void
+NOTE: File scope (private) functions are prefixed with 'prv'.
+
+#Key Data Types:
+	
+#There are two port-specific data types:
+	TickType_t: Used for tick counts and timing.
+	BaseType_t: Used for general base type definitions, which may vary depending on the platform.
+
+#Prefixes used with Data Types:
+	U -> Unsigned
+	ux -> Unsigned Extended
+	config -> Configuration options
+	tsk -> Related to task
+	queue -> Indicates queue-related functions
+	pd -> Pointer to data types
+	x -> portBase_Type (generally signed)
+	
+#Additional Points to Consider:
+	
+	1)Task Priority:
+	Task priorities are defined using UBaseType_t and can range from 0 (lowest) to configMAX_PRIORITIES - 1 (highest).
+	
+	2)Queue and Semaphore Usage:
+	Queues and semaphores are essential for inter-task communication and synchronization. They are associated with data types like QueueHandle_t and SemaphoreHandle_t.
+	
+	3)Event Groups:
+	Event groups are important for task synchronization, allowing tasks to wait for multiple events to occur. This involves using EventGroupHandle_t.
+	
+	4)Stack and Heap Management:
+	Proper management of stack size for tasks and configuration of the heap for dynamic memory allocation is crucial. Use configTOTAL_HEAP_SIZE to define the total heap size.
+	
+	5)Task States:
+	Tasks can be in various states (e.g., Running, Ready, Blocked, Suspended), and these states are managed within FreeRTOS.
+	
+	6)API Functions:
+	Commonly used API functions include:
+	xTaskCreate()
+	vTaskDelay()
+	xQueueSend()
+	xSemaphoreTake()
+	
+	7)Configuration Options:
+	Various configuration options are available in FreeRTOSConfig.h, including parameters like configTICK_RATE_HZ, configUSE_PREEMPTION, and configUSE_TIME_SLICING.
+	
+	8)Macro Values:
+	pdTRUE: 1
+	pdFALSE: 0
+	pdPASS: 1
+	pdFAIL: 0
