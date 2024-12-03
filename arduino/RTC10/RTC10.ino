@@ -15,7 +15,7 @@ void setup()
   TCCR1A = 0;
   TCCR1B = 0;
   TCCR1B |= (1 << WGM12);               // Set CTC mode
-  TCCR1B |= (1 << CS12) | (1 << CS10); // Set prescaler to 1024
+  TCCR1B |= (1 << CS12) | (1 << CS10); // Set prescaler to 1024 
   OCR1A = 15624;                      // Set compare value for 1 second
   TIMSK1 |= (1 << OCIE1A);           
 
